@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+<title>DevTools UX</title>
+
+<section class="frontpage">
+  <h1><span>DevTools</span> UX<span>.</span></h1>
+  <details>An experimental design.</details>
+</section>
+
+<section class="chapter">
+  <h1>3 rules</h1>
+  <details>
+    Things we are trying to fix with this design.
+  </details>
+</section>
+
+<section>
+  <h1><span>1.</span> Don't lose the user</h1>
+  <details>
+    Too many buttons/tabs/popups/windows is bad.
+    Minimize the number of clicks.
+    Share designs patterns between tools.
+    We need to be consistent (between tools &amp; Firefox).
+  </details>
+</section>
+<section class="img"><img src="http://www.favbrowser.com/images/opera-dragonfly-exit.gif"></section>
+
+<section>
+  <h1><span>2.</span> Avoid content invasion</h1>
+  <details>
+    The content is sacred.
+    Hiding 30% of the web page is bad.
+    Can we avoid that?
+  </details>
+</section>
+<section class="img"><img src="http://codinghorror.typepad.com/.a/6a0120a85dcdae970b012877700673970c-pi"></section>
+
+<section>
+  <h1><span>3.</span> Customizable</h1>
+  <details>
+    We can't assume anything. Different use cases.
+    We don't know a lot about developers habits.
+    The developer needs to feel confortable.
+  </details>
+</section>
+
+
+<section class="chapter">
+  <h1>a debugging story</h1>
+</section>
+
+<section>
+  <pre>
+  "I want to debug"
+      -> <strong>Reach the developer-tools entry point</strong>
+         -> "I want to do something with this page"
+           -> <strong>Launch a Page Centric tool</strong>
+         -> "I want to work on a node"
+           -> <strong>Launch the inspector. Select a node</strong>
+             -> "I want to do something with this node"
+               -> <strong>Launch a Node Centric tool</strong>
+  </pre>
+</section>
+
+<section class="chapter">
+  <h1>First experiment</h1>
+  <details>
+  </details>
+</section>
+
+<section>
+  <h1><span>1.</span> Developer Toolbar</h1>
+  <details>
+    It's the entry point.
+    From this toolbar,
+      all the page-centric tools are accessible.
+    The Inspector as well...
+  </details>
+  <footer><a href="https://wiki.mozilla.org/images/6/66/Global.developer.toolbar.png">mockup</a></footer>
+</section>
+
+<section>
+  <h1><span>2.</span> Inspector</h1>
+  <details>
+    new toolbar + highlighter.
+    All the node-centric tools are accessible.
+    <strong>No HTML panel by default</strong>
+    Highlighter + mini-inspector should work in most
+    of the cases.
+  </details>
+  <footer><a href="https://wiki.mozilla.org/images/4/4c/Inspector.toolbar.png">mockup</a></footer>
+</section>
+
+<section>
+  <h1><span>3.</span> Open a tool</h1>
+  <details>
+    <strong>Magic doorhangers</strong>.
+    Page-centric tools are opened in a doorhanger.
+    If no HTML Panel,
+        Node-centric tools are opened in a doorhanger.
+    A doorhanger can be 'unpinned' as a window.
+  </details>
+  <footer><a href="https://wiki.mozilla.org/images/a/a1/Page.centric.tools.png">mockup</a></footer>
+</section>
+
+
+<section>
+  <h1><span>4.</span> Globale Command Line</h1>
+  <details>
+    More efficient. Doesn't take space.
+    Merged with the console cmdline.
+  </details>
+</section>
+
+
+
+
+<!-- Style -->
+
+<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+<style>
+  html { background-color: black; }
+  h1 > span { color: #FF0066 }
+  .img {
+    line-height: 600px;
+    text-align: center;
+  }
+  .img img {
+    width: 700px;
+    margin-top: 50px;
+  }
+
+  .frontpage:before {
+    display: none;
+  }
+  .frontpage h1 {
+    text-align: center;
+    margin-top: 200px;
+    margin-left: 0;
+    line-height: 100px;
+  }
+  .frontpage details {
+    margin-left: 400px;
+  }
+
+  section:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 24px;
+    width: 10px;
+    height: 600px;
+    background-color: #FFF;
+  }
+  .chapter:before {
+    top: 300px;
+    height: 300px;
+  }
+  .chapter h1 {
+    font-size: 80px;
+    margin-left: 0px;
+  }
+
+  pre {
+    margin-top: 100px;
+    margin-left: 25px;
+    font-size: 22px;
+  }
+
+  details {
+    display: block;
+    margin: auto;
+    margin-top: 0px;
+    margin-left: 120px;
+    margin-right: 20px;
+    font-size: 90%;
+    color: gray;
+    white-space: pre;
+  }
+  .chapter details {
+    margin-left: 80px;
+  }
+
+  a { color: #FF0066; } a:hover {text-decoration: underline;}
+  footer { position: absolute; bottom: 50px; right: 50px; }
+  strong {color: #FF0066}
+  body {
+      font-family: 'Oswald', arial, serif;
+      background-color: white;
+      color: white;
+      font-size: 2em;
+      background: black;
+  }
+
+
+  /* Transition effect */
+  section {
+      -moz-transition: top 400ms linear 0s;
+      -webkit-transition: top 400ms linear 0s;
+      -o-transition: top 400ms linear 0s;
+      -ms-transition: top 400ms linear 0s;
+      transition: top 400ms linear 0s;
+  }
+  section { top: -100%; }
+  section[aria-selected] { top: 0; }
+  section[aria-selected] ~ section { top: +100% }
+
+
+  h1 {
+      margin: 150px 100px 0 100px;
+      font-size: 50px;
+      text-shadow: 0px -1px 0px #000;
+      text-align: left;
+  }
+  h2 {
+      color: #FAE50B;
+      margin: 70px 0 0 0;
+      font-size: 40px;
+      text-align: center;
+  }
+  ul {
+      margin-top: 70px;
+      font-size: 35px;
+      text-align: right;
+      border-right: 4px solid white;
+      padding-right: 40px;
+      min-width: 310px;
+      margin-left: 50px;
+      display: inline-block;
+  }
+  video {
+      position: absolute;
+      top: 210px;
+      width: 260px;
+      left: 445px;
+      box-shadow: 0 0 10px black;
+  }
+  #arrow {
+      position: absolute;
+      top: 165px;
+      left: 460px;
+      font-size: 100px;
+      color: white;
+
+  }
+  li {list-style-type: none}
+
+</style>
+
+
+<!-- {{{{ *****************  DZSlides CORE 2.0b1 *************************** -->
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+
+<!-- This block of code is not supposed to be edited, but if you want to change the behavior of the slides, feel free to hack it ;) -->
+
+<!-- Default Style -->
+<style>
+  * { margin: 0; padding: 0; }
+  body {
+    width: 800px; height: 600px;
+    margin-left: -400px; margin-top: -300px;
+    position: absolute; top: 50%; left: 50%;
+    overflow: hidden;
+  }
+  section {
+    position: absolute;
+    pointer-events: none;
+    width: 100%; height: 100%;
+  }
+  section[aria-selected] { pointer-events: auto;}
+  body {display: none}
+  body.loaded {display: block}
+</style>
+
+<script>
+  var friendWindows = [];
+  var idx = 1;
+  var slides;
+
+  /* main() */
+
+  window.onload = function() {
+    slides = document.querySelectorAll("body > section");
+    onhashchange();
+    setSlide();
+    document.body.className = "loaded";
+    onresize();
+  }
+
+  /* Handle keys */
+
+  window.onkeydown = function(e) {
+    // Don't intercept keyboard shortcuts
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) {
+      return;
+    }
+    if ( e.keyCode == 37 // left arrow
+      || e.keyCode == 38 // up arrow
+      || e.keyCode == 33 // page up
+    ) {
+      e.preventDefault();
+      back();
+    }
+    if ( e.keyCode == 39 // right arrow
+      || e.keyCode == 40 // down arrow
+      || e.keyCode == 34 // page down
+    ) {
+      e.preventDefault();
+      forward();
+    }
+
+    if ( e.keyCode == 32) { // space
+        e.preventDefault();
+        toggleContent();
+    }
+  }
+
+  /* Adapt the size of the slides to the window */
+
+  window.onresize = function() {
+    var sx = document.body.clientWidth / window.innerWidth;
+    var sy = document.body.clientHeight / window.innerHeight;
+    var transform = "scale(" + (1/Math.max(sx, sy)) + ")";
+    document.body.style.MozTransform = transform;
+    document.body.style.WebkitTransform = transform;
+    document.body.style.OTransform = transform;
+    document.body.style.msTransform = transform;
+    document.body.style.transform = transform;
+  }
+  function getDetails(idx) {
+    var s = document.querySelector("section:nth-of-type("+ idx +")");
+    var d = s.querySelector("details");
+    return d?d.innerHTML:"";
+  }
+  window.onmessage = function(e) {
+    msg = e.data;
+    win = e.source;
+    if (msg === "register") {
+      friendWindows.push(win);
+      win.postMessage(JSON.stringify({method: "registered", title: document.title, count: slides.length}), document.location);
+      win.postMessage(JSON.stringify({method: "newslide", details: getDetails(idx), idx: idx}), document.location);
+      return;
+    }
+    if (msg === "back") back();
+    if (msg === "forward") forward();
+    if (msg === "toggleContent") toggleContent();
+    // setSlide(42)
+    var r = /setSlide\((\d+)\)/.exec(msg);
+    if (r) {
+        idx = r[1];
+        setSlide();
+    }
+  }
+
+  /* If a Video is present in this new slide, play it.
+     If a Video is present in the previous slide, stop it. */
+
+  function toggleContent() {
+    var s = document.querySelector("section[aria-selected]");
+    if (s) {
+        var video = s.querySelector("video");
+        if (video) {
+            if (video.ended || video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+    }
+  }
+
+  /* If the user change the slide number in the URL bar, jump
+     to this slide. */
+
+  window.onhashchange = function(e) {
+    var newidx = ~~window.location.hash.split("#")[1];
+    if (!newidx) newidx = 1;
+    if (newidx == idx) return;
+    idx = newidx;
+    setSlide();
+  }
+
+  /* Slide controls */
+
+  function back() {
+    if (idx == 1) return;
+    idx--;
+    setSlide();
+  }
+  function forward() {
+    if (idx >= slides.length) return;
+    idx++;
+    setSlide();
+  }
+  function setSlide() {
+    var old = document.querySelector("section[aria-selected]");
+    var next = document.querySelector("section:nth-of-type("+ idx +")");
+    if (old) {
+      old.removeAttribute("aria-selected");
+      var video = old.querySelector("video");
+      if (video) { video.pause(); }
+    }
+    if (next) {
+      next.setAttribute("aria-selected", "true");
+      var video = next.querySelector("video");
+      if (video) { video.play(); }
+    } else {
+      console.warn("No such slide: " + idx);
+      idx = 0;
+      for (var i = 0; i < slides.length; i++) {
+          if (slides[i].hasAttribute("aria-selected")) {
+              idx = i + 1;
+          }
+      }
+    }
+    window.location.hash = idx;
+    for (var i = 0; i < friendWindows.length; i++) {
+        friendWindows[i].postMessage(JSON.stringify({method: "newslide", details: getDetails(idx), idx: idx}), document.location);
+    }
+  }
+</script>
+<!-- vim: set fdm=marker: }}} -->
