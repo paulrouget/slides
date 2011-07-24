@@ -353,6 +353,7 @@
     onhashchange();
     setSlide();
     document.body.className = "loaded";
+    setupTouchEvents();
     onresize();
   }
 
@@ -384,6 +385,39 @@
     }
   }
 
+  /* Touch Events */
+
+  function setupTouchEvents() {
+    var orgX, orgY;
+    var newX, newY;
+
+    var body = document.body;
+    body.addEventListener("touchstart", start, false);
+    body.addEventListener("touchmove", move, false);
+    body.addEventListener("touchend", end, false);
+
+    function start(e) {
+      e.preventDefault();
+      orgX = e.changedTouches[0].pageX;
+      orgY = e.changedTouches[0].pageY;
+    }
+
+    function move(e) {
+      newX = e.changedTouches[0].pageX;
+      newY = e.changedTouches[0].pageY;
+    }
+
+    function end(e) {
+      if (orgX - newX > 10) {
+        forward();
+      } else {
+        if (orgX - newY < 10) {
+          back();
+        }
+      }
+    }
+  }
+
   /* Adapt the size of the slides to the window */
 
   window.onresize = function() {
@@ -406,8 +440,8 @@
     win = e.source;
     if (msg === "register") {
       friendWindows.push(win);
-      win.postMessage(JSON.stringify({method: "registered", title: document.title, count: slides.length}), document.location);
-      win.postMessage(JSON.stringify({method: "newslide", details: getDetails(idx), idx: idx}), document.location);
+      win.postMessage(JSON.stringify({method: "registered", title: document.title, count: slides.length}), "*");
+      win.postMessage(JSON.stringify({method: "newslide", details: getDetails(idx), idx: idx}), "*");
       return;
     }
     if (msg === "back") back();
@@ -429,7 +463,7 @@
     if (s) {
         var video = s.querySelector("video");
         if (video) {
-            if (video.ended || video.paused) {
+            if (video.ended || video.paused) {
                 video.play();
             } else {
                 video.pause();
@@ -484,7 +518,7 @@
     }
     window.location.hash = idx;
     for (var i = 0; i < friendWindows.length; i++) {
-        friendWindows[i].postMessage(JSON.stringify({method: "newslide", details: getDetails(idx), idx: idx}), document.location);
+        friendWindows[i].postMessage(JSON.stringify({method: "newslide", details: getDetails(idx), idx: idx}), "*");
     }
   }
 </script>
