@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+<title>HTML5 today and tomorrow</title>
+
+<section id="intro">
+    <h1>HTML5 &amp; Friends</h1>
+    <h2>Today and tomorrow</h2>
+    <footer>by <a href="http://twitter.com/paulrouget">@paulrouget</a></footer>
+</section>
+
+<section>define HTML5</section>
+
+<section>markup</section>
+
+<section>
+<pre>
+
+&lt;!DOCTYPE html>
+&lt;html>
+ &lt;body>
+
+   &lt;article>
+   
+    &lt;video>&lt;/video>
+    &lt;canvas>&lt;/canvas>
+    
+   &lt;/article>
+
+ &lt;/body>
+&lt;/html>
+</pre>
+</section>
+
+<section>APIs</section>
+
+<section><strong>TODAY</strong></section>
+
+<section>
+  <h3>DOM</h3>
+<p>
+Document object model
+</p>
+</section>
+
+<section>
+  <h3>XMLHttpRequest</h3>
+<p>
+HTTP
+</p>
+</section>
+
+<section>
+  <h3>WebSockets</h3>
+<p>
+persistent
+full-duplex
+</p>
+</section>
+
+<section>
+  <h3>server-sent events</h3>
+<p>
+simple
+server-to-client
+persistent
+events
+</p>
+</section>
+
+<section>
+  <h3>Audio API</h3>
+<p>
+process
+generate
+</p>
+</section>
+
+<section>
+  <h3>Canvas 2D</h3>
+</section>
+
+<section>
+  <h3>Canvas 3D - webgl</h3>
+</section>
+
+<section>
+  <h3>offline</h3>
+<p>
+localStorage
+app cache
+</p>
+</section>
+
+<section>
+  <h3>File API</h3>
+<p>
+previews
+readers
+</p>
+</section>
+
+<section>
+  <h3>WebWorkers</h3>
+<p>
+JavaScript threads
+</p>
+</section>
+
+<section>
+  <h3>GeoLocation</h3>
+</section>
+
+<section>
+  <h3>Orientation</h3>
+</section>
+
+<section><strong>tomorrow</strong></section>
+
+<section>
+<h3><span style="color:red">WARNING!</span></h3>
+<p>
+work in progress
+being / to be standardized
+not stable, not sure
+</p>
+</section>
+
+<section>
+  <h3>DOMCrypt</h3>
+<p>
+Cryptography client side
+encrypt() / decrypt()
+</p>
+</section>
+
+<section>
+  <h3>Web Notifications</h3>
+<p>
+createNotification(
+  'icon.png', 'title', 'text'
+);</p>
+</section>
+
+<section>
+<h3>text to speech - TTS</h3>
+</section>
+
+<section>
+<h3>speech input</h3>
+<p>
+&lt;input type="text" speech>
+</section>
+
+<section>
+<h3>fullscreen</h3>
+<p>for content</p>
+</section>
+
+<section>
+<h3>joystick</h3>
+<p>
+    http://is.gd/joystickdemo
+    http://is.gd/joystickapi
+</p>
+</section>
+
+<section>
+<h3>Mouse Lock/Capture API</h3>
+<p>
+
+Because mousemove
+is not enough.
+</p>
+</section>
+
+
+<section>
+<h3>WebUSB</h3>
+<p>addUSBHandler(
+  matchClass,
+  matchVendor,
+  matchDevice
+)</p>
+</section>
+
+
+<section>
+<h3>WebContact</h3>
+<p>
+query contacts
+update contacts
+(add/remove/edit)
+</p>
+</section>
+
+<section>
+<h3>WebSMS</h3>
+<p>
+send SMS messages
+receive SMS messages
+</p>
+</section>
+
+<section>
+<h3>WebTelephony</h3>
+<p>
+ - dial out
+ - mediate incoming calls
+   (accept/reject/merge)
+ - query transceiver state    
+</p>
+</section>
+
+<section>
+<h3>WebBluetooth</h3>
+</section>
+
+<section>
+<h3>WebVibrator</h3>
+<p>
+navigator.vibrate(
+  pattern, [repeat]
+)
+</p>
+</section>
+
+<section>
+<h3>WebNFC</h3>
+<p>
+near-field communication
+</p>
+</section>
+
+<section>
+<h3>network type</h3>
+<p>
+navigator.networktype</p>
+</section>
+
+<section>
+<h3>DOM3 keyboards events</h3>
+<p>
+
+multimedia keys
+</p>
+</section>
+
+<section>
+<h3>WebRTC</h3>
+<p>Web Real-Time
+  Communication
+camera, audio
+live streaming
+</p>
+<footer>webrtc.org</footer>
+</section>
+
+<section><h3>end</h3>
+<p>... and need help</p></section>
+
+<section>bugzil.la/673923</section>
+
+<link href='http://fonts.googleapis.com/css?family=Carme' rel='stylesheet' type='text/css'>
+<style>
+  html {background-color: black;}
+  body {background-color: black;}
+  strong { color: #F06;}
+  a { text-decoration: underline; color: #F06;}
+  footer { position: absolute; bottom: 50px; right: 50px; font-size: 60px;line-height:65px; font-family: arial}
+  section > img, section > q { vertical-align: middle;}
+  #intro { text-align: left; line-height: inherit;}
+  #intro h1 {
+      margin-top: 180px;
+      margin-left: 100px;
+      font-size: 60px;
+      color: #777;
+      font-weight: normal;
+  }
+  #intro h2 {
+      margin-left: 100px;
+      font-size: 70px;
+      margin-top: -20px;
+      font-weight: normal;
+      color: #FFF;
+  }
+  
+  #end  {
+      line-height: inherit;
+  }
+  
+
+  section {
+      -moz-transition: left 400ms linear 0s;
+      -webkit-transition: left 400ms linear 0s;
+      -ms-transition: left 400ms linear 0s;
+      transition: left 400ms linear 0s;
+      border-left: 5px solid white;
+      background-color: black;
+      color: white;
+      text-align: center;
+      line-height: 600px;
+      font-size: 80px;
+      font-family: 'Carme', serif;
+  }
+  q {
+      display: inline-block;
+      line-height: 100px;
+      text-align: left;
+      margin-left: 64px;
+  }
+  
+  pre {
+      display: inline-block;
+      text-align: left;
+      margin-left: 5px;
+      line-height: 40px;
+      font-size: 40px;
+  }
+  
+  q:before {
+      content: "\"";
+      margin-left: -32px;
+  }
+  q:after {
+      content: "\"";
+  }
+  
+  h3 {
+      position: absolute;
+      top: 90px; left:40px;
+      font-size: 80px;
+      line-height: 90px;
+  }
+  
+  p {
+      position: absolute;
+      text-align: left;
+      white-space: pre;
+      top: 172px; left: 40px;
+      font-size: 60px;
+      font-family: Arial;
+      line-height: 75px;
+  }
+  
+  section { left: -0%; }
+  section[aria-selected] { left: 0; }
+  section[aria-selected] ~ section { left: 150% }
+</style>
+
+
+<!-- {{{{ *****************  DZSlides CORE 2.0b1 *************************** -->
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+
+<!-- This block of code is not supposed to be edited, but if you want to change
+     the behavior of the slides, feel free to hack it ;) -->
+
+<!-- Default Style -->
+<style>
+  * { margin: 0; padding: 0; }
+  details {display: none;}
+  body {
+    width: 800px; height: 600px;
+    margin-left: -400px; margin-top: -300px;
+    position: absolute; top: 50%; left: 50%;
+    overflow: hidden;
+  }
+  html {
+    overflow: hidden;
+  }
+  section {
+    position: absolute;
+    pointer-events: none;
+    width: 100%; height: 100%;
+  }
+  section[aria-selected] { pointer-events: auto;}
+  body {display: none}
+  body.loaded {display: block}
+</style>
+
+<script>
+  var friendWindows = [];
+  var idx = 1;
+  var slides;
+
+  /* main() */
+
+  window.onload = function() {
+    slides = document.querySelectorAll("body > section");
+    onhashchange();
+    setSlide();
+    document.body.className = "loaded";
+    setupTouchEvents();
+    onresize();
+  }
+
+  /* Handle keys */
+
+  window.onkeydown = function(e) {
+    // Don't intercept keyboard shortcuts
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) {
+      return;
+    }
+    if ( e.keyCode == 37 // left arrow
+      || e.keyCode == 38 // up arrow
+      || e.keyCode == 33 // page up
+    ) {
+      e.preventDefault();
+      back();
+    }
+    if ( e.keyCode == 39 // right arrow
+      || e.keyCode == 40 // down arrow
+      || e.keyCode == 34 // page down
+    ) {
+      e.preventDefault();
+      forward();
+    }
+
+    if ( e.keyCode == 32) { // space
+        e.preventDefault();
+        toggleContent();
+    }
+  }
+
+  /* Touch Events */
+
+  function setupTouchEvents() {
+    var orgX, newX;
+    var tracking = false;
+
+    var body = document.body;
+    body.addEventListener("touchstart", start, false);
+    body.addEventListener("touchmove", move, false);
+
+    function start(e) {
+      e.preventDefault();
+      tracking = true;
+      orgX = e.changedTouches[0].pageX;
+    }
+
+    function move(e) {
+      if (!tracking) return;
+      newX = e.changedTouches[0].pageX;
+      if (orgX - newX > 100) {
+        tracking = false;
+        forward();
+      } else {
+        if (orgX - newX < -100) {
+          tracking = false;
+          back();
+        }
+      }
+    }
+  }
+
+  /* Adapt the size of the slides to the window */
+
+  window.onresize = function() {
+    var sx = document.body.clientWidth / window.innerWidth;
+    var sy = document.body.clientHeight / window.innerHeight;
+    var transform = "scale(" + (1/Math.max(sx, sy)) + ")";
+    document.body.style.MozTransform = transform;
+    document.body.style.WebkitTransform = transform;
+    document.body.style.OTransform = transform;
+    document.body.style.msTransform = transform;
+    document.body.style.transform = transform;
+  }
+  function getDetails(idx) {
+    var s = document.querySelector("section:nth-of-type("+ idx +")");
+    var d = s.querySelector("details");
+    return d?d.innerHTML:"";
+  }
+  window.onmessage = function(e) {
+    msg = e.data;
+    win = e.source;
+    if (msg === "register") {
+      friendWindows.push(win);
+      win.postMessage(JSON.stringify({method: "registered", title: document.title, count: slides.length}), "*");
+      win.postMessage(JSON.stringify({method: "newslide", details: getDetails(idx), idx: idx}), "*");
+      return;
+    }
+    if (msg === "back") back();
+    if (msg === "forward") forward();
+    if (msg === "toggleContent") toggleContent();
+    // setSlide(42)
+    var r = /setSlide\((\d+)\)/.exec(msg);
+    if (r) {
+        idx = r[1];
+        setSlide();
+    }
+  }
+
+  /* If a Video is present in this new slide, play it.
+     If a Video is present in the previous slide, stop it. */
+
+  function toggleContent() {
+    var s = document.querySelector("section[aria-selected]");
+    if (s) {
+        var video = s.querySelector("video");
+        if (video) {
+            if (video.ended || video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+    }
+  }
+
+  /* If the user change the slide number in the URL bar, jump
+     to this slide. */
+
+  window.onhashchange = function(e) {
+    var newidx = ~~window.location.hash.split("#")[1];
+    if (!newidx) newidx = 1;
+    if (newidx == idx) return;
+    idx = newidx;
+    setSlide();
+  }
+
+  /* Slide controls */
+
+  function back() {
+    if (idx == 1) return;
+    idx--;
+    setSlide();
+  }
+  function forward() {
+    if (idx >= slides.length) return;
+    idx++;
+    setSlide();
+  }
+  function setSlide() {
+    var old = document.querySelector("section[aria-selected]");
+    var next = document.querySelector("section:nth-of-type("+ idx +")");
+    if (old) {
+      old.removeAttribute("aria-selected");
+      var video = old.querySelector("video");
+      if (video) { video.pause(); }
+    }
+    if (next) {
+      next.setAttribute("aria-selected", "true");
+      var video = next.querySelector("video");
+      if (video) { video.play(); }
+    } else {
+      console.warn("No such slide: " + idx);
+      idx = 0;
+      for (var i = 0; i < slides.length; i++) {
+          if (slides[i].hasAttribute("aria-selected")) {
+              idx = i + 1;
+          }
+      }
+    }
+    window.location.hash = idx;
+    for (var i = 0; i < friendWindows.length; i++) {
+        friendWindows[i].postMessage(JSON.stringify({method: "newslide", details: getDetails(idx), idx: idx}), "*");
+    }
+  }
+</script>
+<!-- vim: set fdm=marker: }}} -->
