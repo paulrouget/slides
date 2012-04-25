@@ -4,16 +4,15 @@
 <title>Can thousands of twitter followers help?</title>
 
 <section>
-    <h1>Can thousands of twitter followers help?</h1>
+  <h1>@paulrouget</h2>
+  <details>
+    I share a lot.
+    So I have a lot of followers.
+    I am trying to work with them.
+  </details>
+  <footer>http://paulrouget.com/slides/fx-dev-and-twitter.html</footer>
 </section>
 
-<section>
-  <p style="margin-top: 140px"><a href="http://twitter.com">Twitter</a>: a lot of passionate people, answering and sharing immediately.</p>
-</section>
-
-<section>
-  <p style="margin-top: 140px">Powerful, but limited.</p>
-</section>
 
 <section id="accountlist">
   <style>
@@ -26,17 +25,23 @@
     <li><img src="http://i.imgur.com/JN7xXs.jpg">@FirefoxNightly
     <li><img src="http://i.imgur.com/E3c8cs.jpg">@mozhacks
   </ul>
+  <details>
+    MANY passionate people
+    Answering and sharing FAST
+  </details>
 </section>
 
 <section>
-  <h3>What you can ask</h3>
-  <ul>
-    <li>ask questions
-    <li>feedback
-    <li>Validate assumptions
-    <li>ideas, inspiration
-    <li>ask for code and designs
-  </ul>
+  <p>I play with them.</p>
+  <details>
+    And you too!
+  </details>
+</section>
+
+<section>
+  <p>ask questions and validate assumptions
+  <p>get feedback, ideas, inspiration
+  <p>ask for code and designs
 </section>
 
 <section>
@@ -69,7 +74,7 @@
 
 <section><figure><img src=http://i.imgur.com/wNYFv.png></figure></section>
 
-<section><figure><img src=https://bug697983.bugzilla.mozilla.org/attachment.cgi?id=570539></figure></section> 
+<section><figure><img src=https://bug697983.bugzilla.mozilla.org/attachment.cgi?id=570539></figure></section>
 
 <section><h2>Fail</h2></section>
 
@@ -80,6 +85,7 @@
 <section>
   <h3>Limits</h3>
   <ul>
+    <li>Twitter == "quantity and speed", not "quality"
     <li>survey: bias
     <li>you have one shot
     <li>time to setup a question > time to fix the bug
@@ -96,16 +102,17 @@
     <li>share only one URL
     <li>isolate the problem
     <li>context is key
-    <li>Expect a LOT of answers
+    <li>Expect a LOT of answers:
     <li>from smart and stupid people
     <li>make sure people don't expect answers
-    <li>make sure people undestand we might not use their work
+    <li>make sure people understand we might not use their work
     <li>track who did what
   </ul>
 </section>
 
 <section>
-  <h1>&lt/end></h1>
+  <h1>End</h1>
+  <footer>http://paulrouget.com/slides/fx-dev-and-twitter.html</footer>
 </section>
 
 <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
@@ -124,7 +131,7 @@
   }
 
   ul {
-      margin: 50px 0 0 200px;
+      margin: 30px 0 0 200px;
   }
 
   p {
@@ -240,6 +247,46 @@
     width: 100%; height: 100%;
   }
 </style>
+
+<script> // Helpers
+  if (!Function.prototype.bind) {
+    Function.prototype.bind = function (oThis) {
+
+      // closest thing possible to the ECMAScript 5 internal IsCallable
+      // function 
+      if (typeof this !== "function")
+      throw new TypeError(
+        "Function.prototype.bind - what is trying to be fBound is not callable"
+      );
+
+      var aArgs = Array.prototype.slice.call(arguments, 1),
+          fToBind = this,
+          fNOP = function () {},
+          fBound = function () {
+            return fToBind.apply( this instanceof fNOP ? this : oThis || window,
+                   aArgs.concat(Array.prototype.slice.call(arguments)));
+          };
+
+      fNOP.prototype = this.prototype;
+      fBound.prototype = new fNOP();
+
+      return fBound;
+    };
+  }
+
+  var $ = (HTMLElement.prototype.$ = function(aQuery) {
+    return this.querySelector(aQuery);
+  }).bind(document);
+
+  var $$ = (HTMLElement.prototype.$$ = function(aQuery) {
+    return this.querySelectorAll(aQuery);
+  }).bind(document);
+
+  $$.forEach = function(nodeList, fun) {
+    Array.prototype.forEach.call(nodeList, fun);
+  }
+
+</script>
 
 <script>
   var Dz = {
@@ -566,47 +613,9 @@
     window.onmessage = Dz.onmessage.bind(Dz);
   }
 
-  window.onload = init;
+  //window.onload = init;
+  init();
 </script>
 
 
-<script> // Helpers
-  if (!Function.prototype.bind) {
-    Function.prototype.bind = function (oThis) {
-
-      // closest thing possible to the ECMAScript 5 internal IsCallable
-      // function 
-      if (typeof this !== "function")
-      throw new TypeError(
-        "Function.prototype.bind - what is trying to be fBound is not callable"
-      );
-
-      var aArgs = Array.prototype.slice.call(arguments, 1),
-          fToBind = this,
-          fNOP = function () {},
-          fBound = function () {
-            return fToBind.apply( this instanceof fNOP ? this : oThis || window,
-                   aArgs.concat(Array.prototype.slice.call(arguments)));
-          };
-
-      fNOP.prototype = this.prototype;
-      fBound.prototype = new fNOP();
-
-      return fBound;
-    };
-  }
-
-  var $ = (HTMLElement.prototype.$ = function(aQuery) {
-    return this.querySelector(aQuery);
-  }).bind(document);
-
-  var $$ = (HTMLElement.prototype.$$ = function(aQuery) {
-    return this.querySelectorAll(aQuery);
-  }).bind(document);
-
-  $$.forEach = function(nodeList, fun) {
-    Array.prototype.forEach.call(nodeList, fun);
-  }
-
-</script>
 <!-- vim: set fdm=marker: }}} -->
